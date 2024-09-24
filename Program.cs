@@ -1,114 +1,300 @@
-﻿/* приклад 1
-string s = "Dfg + t5 - r7y; asd* s34; rt";
-int t = s.IndexOf(";"); int i, k = 0;
-for (i = 0; i <= t; i++)
-{
-    if (char.IsLetter(s[i])) k++;
-}
-Console.WriteLine(k); Console.ReadKey();*/
+﻿/*using System;
+using System.Collections.Generic;
+using System.Linq;*/
 
-/*приклад 2
-string s = "АУАУАПАУК"; int i = 0;
-do
-{
-    string ss = s.Substring(i, 2); if (ss == "АУ")
-    {
-        s = s.Insert(i, "О"); i = i + 3;
-    }
-    else
-    {
-        i++;
-    };
-} while (i < s.Length - 1);
-Console.WriteLine(s); Console.ReadKey();*/
+/* ЗАВДАННЯ №1
 
-/*приклад 3
-string s = "бiологiя алгебра iсторiя географiя геометрiя";
-string c = "i"; string[] a;
-a = s.Split(' '); int i;
-for (i = 0; i < a.Length; i++)
-{
-    int t = a[i].IndexOf(c); if (t != -1) Console.WriteLine(a[i]);
-}
-Console.ReadKey();*/
-
-/*приклад 4
-string s1 = "бiологiя алгебра iсторiя географiя геометрiя"; string[] a;
-a = s1.Split(' '); Array.Reverse(a);
-string s2 = string.Join(" ", a); Console.WriteLine(s2);
-Console.ReadKey();*/
-
-
-
-/*завдання 9*/
-using System;
-using System.Globalization;
-
-class Program
+ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Задача 1:");
-        string input = "бабушка дома делает бублики";
-        char letter1 = 'а';
-        char letter2 = 'б';
+        int N = 10; 
+        Random rand = new Random();
+        List<int> numbers = new List<int>();
 
-        int count1 = 0, count2 = 0;
-
-        foreach (char c in input)
+        for (int i = 0; i < N; i++)
         {
-            if (c == letter1)
-                count1++;
-            if (c == letter2)
-                count2++;
+            numbers.Add(rand.Next(-5, 6));
         }
 
-        if (count1 > count2)
-            Console.WriteLine($"Буква '{letter1}' зустрічається частіше.");
-        else if (count2 > count1)
-            Console.WriteLine($"Буква '{letter2}' зустрічається частіше.");
-        else
-            Console.WriteLine("Обидві букви зустрічаються однаково часто.");
+        Console.WriteLine("Початкова колекція: " + string.Join(", ", numbers));
 
-        Console.WriteLine();
+        numbers.RemoveAll(x => x % 3 == 0 || x % 5 == 0);
 
-
-        Console.WriteLine("Задача 2:");
-        string S = "я дома";
-        string S1 = "опа";
-        string S2 = "ам";
-
-        string result2 = S.Replace(S1, S2 + S1);
-
-        Console.WriteLine(result2);
-
-        Console.WriteLine();
+        Console.WriteLine("Колекція після видалення кратних 3 або 5: " + string.Join(", ", numbers));
+    }
+}*/
 
 
-        Console.WriteLine("Задача 3:");
-        string sentence = "все дома";
-        TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-
-        string result3 = textInfo.ToTitleCase(sentence.ToLower());
-
-        Console.WriteLine(result3);
-
-        Console.WriteLine();
 
 
-        Console.WriteLine("Задача 4:");
-        string sentence4 = "мама дома готовит кушати";
-        string[] words = sentence4.Split(' ');
+/*ЗАВДАННЯ №2
+ 
+ class Program
+{
+    static void Main()
+    {
+        int N = 10; 
+        int X = 30; 
+        Random rand = new Random();
+        List<int> numbers = new List<int>();
 
-        for (int i = 0; i < words.Length - 1; i += 2)
+        // Формуємо колекцію з N випадкових чисел в інтервалі [5; 50]
+        for (int i = 0; i < N; i++)
         {
-            string temp = words[i];
-            words[i] = words[i + 1];
-            words[i + 1] = temp;
+            numbers.Add(rand.Next(5, 51));
         }
 
-        string result4 = string.Join(" ", words);
+        Console.WriteLine("Початкова колекція: " + string.Join(", ", numbers));
 
-        Console.WriteLine(result4);
+        int lastIndex = numbers.FindLastIndex(x => x > X);
+
+        if (lastIndex != -1)
+        {
+            numbers.Insert(lastIndex, -1);
+        }
+
+        Console.WriteLine("Колекція після вставки -1: " + string.Join(", ", numbers));
+    }
+}*/
+
+
+
+
+/*ЗАВДАННЯ №3 
+ 
+ class Program
+{
+    static void Main()
+    {
+        int N = 10; 
+        Random rand = new Random();
+        List<int> collection1 = new List<int>();
+        List<int> collection2 = new List<int>();
+
+        for (int i = 0; i < N; i++)
+        {
+            collection1.Add(rand.Next(1, 11));
+            collection2.Add(rand.Next(1, 11));
+        }
+
+        Console.WriteLine("Перша колекція: " + string.Join(", ", collection1));
+        Console.WriteLine("Друга колекція: " + string.Join(", ", collection2));
+
+        List<int> resultCollection = new List<int>();
+        for (int i = 0; i < N; i++)
+        {
+            resultCollection.Add(collection1[i] * collection2[i]);
+        }
+
+        Console.WriteLine("Третя колекція (добутки): " + string.Join(", ", resultCollection));
+    }
+}*/
+
+
+
+
+
+
+/* ПРИКЛАД 1
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 20));
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}*/
+
+
+
+/* ПРИКЛАД 2
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 20));
+}
+
+int mx = chisla[0];
+int nmx = 0;
+for (int i = 1; i < chisla.Count; i++)
+{
+    if (chisla[i] > mx)
+    {
+        mx = chisla[i];
+        nmx = i;
     }
 }
+Console.WriteLine("\nМаксимальное число: {0}, Индекс: {1}", mx, nmx);*/
+
+
+
+/*ПРИКЛАД 3
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 10));
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}
+Console.WriteLine();
+int x = Convert.ToInt32(Console.ReadLine());
+chisla.Remove(x);
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}*/
+
+
+
+/*ПРИКЛАД 4
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 10));
+}
+
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}
+
+Console.WriteLine();
+int x = Convert.ToInt32(Console.ReadLine());
+for (int i = chisla.Count - 1; i >= 0; i--)
+{
+    if (chisla[i] == x)
+    {
+        chisla.RemoveAt(i);
+    }
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);*/
+
+
+
+
+/*ПРИКЛАД 5
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 10));
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}
+
+Console.WriteLine();
+int k = Convert.ToInt32(Console.ReadLine());
+if (k >= 0 && k < chisla.Count)
+{
+    chisla.RemoveAt(k);
+}
+else
+{
+    Console.WriteLine("Индекс вне диапазона.");
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}*/
+
+
+
+
+/*ПРИКЛАД 6
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 10));
+}
+
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}
+
+Console.WriteLine();
+int x = Convert.ToInt32(Console.ReadLine());
+for (int i = chisla.Count - 1; i >= 0; i--)
+{
+    if (chisla[i] == x)
+    {
+        chisla.RemoveAt(i);
+    }
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);*/
+
+
+
+
+/*ПРИКЛАД 7
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 10));
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}
+Console.WriteLine();
+Console.Write("Введите индекс: ");
+int k = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число: ");
+int x = Convert.ToInt32(Console.ReadLine());
+if (k >= 0 && k <= chisla.Count)
+{
+    chisla.Insert(k, x);
+}
+else
+{
+    Console.WriteLine("Индекс вне диапазона.");
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}*/
+
+
+
+
+/*ПРИКЛАД 8
+Random o = new Random();
+List<int> chisla = new List<int>();
+for (int i = 0; i < 10; i++)
+{
+    chisla.Add(o.Next(1, 10));
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}
+Console.WriteLine();
+Console.Write("Введите число: ");
+int x = Convert.ToInt32(Console.ReadLine());
+for (int i = chisla.Count - 1; i >= 0; i--)
+{
+    if (chisla[i] % 2 == 0)
+    {
+        chisla.Insert(i + 1, x);
+    }
+}
+for (int i = 0; i < chisla.Count; i++)
+{
+    Console.Write("{0} ", chisla[i]);
+}*/
